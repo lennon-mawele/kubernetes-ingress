@@ -53,6 +53,12 @@ spec:
                 type: object
                 x-kubernetes-preserve-unknown-fields: true
               type: array
+            modificationsReference:
+              properties:
+                link:
+                  pattern: ^http
+                  type: string
+              type: object
             policy:
               description: Defines the App Protect policy
               properties:
@@ -112,12 +118,6 @@ spec:
                             type: integer
                         type: object
                       type: array
-                    evasionsReference:
-                      properties:
-                        link:
-                          pattern: ^http
-                          type: string
-                      type: object
                     http-protocols:
                       items:
                         properties:
@@ -151,12 +151,6 @@ spec:
                             type: integer
                         type: object
                       type: array
-                    http-protocolsReference:
-                      properties:
-                        link:
-                          pattern: ^http
-                          type: string
-                      type: object
                     violations:
                       items:
                         properties:
@@ -264,14 +258,8 @@ spec:
                             type: string
                         type: object
                       type: array
-                    violationsReference:
-                      properties:
-                        link:
-                          pattern: ^http
-                          type: string
-                      type: object
                   type: object
-                blocking-settingsReference:
+                blockingSettingsReference:
                   properties:
                     link:
                       pattern: ^http
@@ -291,12 +279,6 @@ spec:
                               type: string
                           type: object
                         type: array
-                      characterSetReference:
-                        properties:
-                          link:
-                            pattern: ^http
-                            type: string
-                        type: object
                       characterSetType:
                         enum:
                         - gwt-content
@@ -310,7 +292,7 @@ spec:
                         type: string
                     type: object
                   type: array
-                character-setsReference:
+                characterSetReference:
                   properties:
                     link:
                       pattern: ^http
@@ -322,7 +304,13 @@ spec:
                       pattern: any|\d+
                       type: string
                   type: object
-                cookie-settingsReference:
+                cookieReference:
+                  properties:
+                    link:
+                      pattern: ^http
+                      type: string
+                  type: object
+                cookieSettingsReference:
                   properties:
                     link:
                       pattern: ^http
@@ -357,12 +345,6 @@ spec:
                               type: integer
                           type: object
                         type: array
-                      signatureOverridesReference:
-                        properties:
-                          link:
-                            pattern: ^http
-                            type: string
-                        type: object
                       type:
                         enum:
                         - explicit
@@ -370,12 +352,6 @@ spec:
                         type: string
                     type: object
                   type: array
-                cookiesReference:
-                  properties:
-                    link:
-                      pattern: ^http
-                      type: string
-                  type: object
                 data-guard:
                   properties:
                     creditCardNumbers:
@@ -400,7 +376,7 @@ spec:
                     usSocialSecurityNumbers:
                       type: boolean
                   type: object
-                data-guardReference:
+                dataGuardReference:
                   properties:
                     link:
                       pattern: ^http
@@ -415,6 +391,12 @@ spec:
                   - transparent
                   - blocking
                   type: string
+                filetypeReference:
+                  properties:
+                    link:
+                      pattern: ^http
+                      type: string
+                  type: object
                 filetypes:
                   items:
                     properties:
@@ -447,12 +429,6 @@ spec:
                         type: integer
                     type: object
                   type: array
-                filetypesReference:
-                  properties:
-                    link:
-                      pattern: ^http
-                      type: string
-                  type: object
                 fullPath:
                   type: string
                 general:
@@ -485,7 +461,13 @@ spec:
                       pattern: any|\d+
                       type: string
                   type: object
-                header-settingsReference:
+                headerReference:
+                  properties:
+                    link:
+                      pattern: ^http
+                      type: string
+                  type: object
+                headerSettingsReference:
                   properties:
                     link:
                       pattern: ^http
@@ -519,12 +501,6 @@ spec:
                         type: boolean
                     type: object
                   type: array
-                headersReference:
-                  properties:
-                    link:
-                      pattern: ^http
-                      type: string
-                  type: object
                 json-profiles:
                   items:
                     properties:
@@ -545,12 +521,6 @@ spec:
                           tolerateJSONParsingWarnings:
                             type: boolean
                         type: object
-                      defenseAttributesReference:
-                        properties:
-                          link:
-                            pattern: ^http
-                            type: string
-                        type: object
                       description:
                         type: string
                       hasValidationFiles:
@@ -561,12 +531,6 @@ spec:
                         type: string
                     type: object
                   type: array
-                json-profilesReference:
-                  properties:
-                    link:
-                      pattern: ^http
-                      type: string
-                  type: object
                 json-validation-files:
                   items:
                     properties:
@@ -578,7 +542,13 @@ spec:
                         type: boolean
                     type: object
                   type: array
-                json-validation-filesReference:
+                jsonProfileReference:
+                  properties:
+                    link:
+                      pattern: ^http
+                      type: string
+                  type: object
+                jsonValidationFileReference:
                   properties:
                     link:
                       pattern: ^http
@@ -599,6 +569,12 @@ spec:
                   type: array
                 name:
                   type: string
+                parameterReference:
+                  properties:
+                    link:
+                      pattern: ^http
+                      type: string
+                  type: object
                 parameters:
                   items:
                     properties:
@@ -631,12 +607,6 @@ spec:
                               type: string
                           type: object
                         type: array
-                      nameMetacharOverridesReference:
-                        properties:
-                          link:
-                            pattern: ^http
-                            type: string
-                        type: object
                       parameterLocation:
                         type: string
                       sensitiveParameter:
@@ -650,12 +620,6 @@ spec:
                               type: integer
                           type: object
                         type: array
-                      signatureOverridesReference:
-                        properties:
-                          link:
-                            pattern: ^http
-                            type: string
-                        type: object
                       type:
                         enum:
                         - explicit
@@ -670,22 +634,10 @@ spec:
                               type: string
                           type: object
                         type: array
-                      valueMetacharOverridesReference:
-                        properties:
-                          link:
-                            pattern: ^http
-                            type: string
-                        type: object
                       valueType:
                         type: string
                     type: object
                   type: array
-                parametersReference:
-                  properties:
-                    link:
-                      pattern: ^http
-                      type: string
-                  type: object
                 response-pages:
                   items:
                     properties:
@@ -735,7 +687,7 @@ spec:
                         type: string
                     type: object
                   type: array
-                response-pagesReference:
+                responsePageReference:
                   properties:
                     link:
                       pattern: ^http
@@ -748,7 +700,7 @@ spec:
                         type: string
                     type: object
                   type: array
-                sensitive-parametersReference:
+                sensitiveParameterReference:
                   properties:
                     link:
                       pattern: ^http
@@ -835,7 +787,7 @@ spec:
                         type: string
                     type: object
                   type: array
-                server-technologiesReference:
+                serverTechnologyReference:
                   properties:
                     link:
                       pattern: ^http
@@ -867,12 +819,6 @@ spec:
                     type: object
                     x-kubernetes-preserve-unknown-fields: true
                   type: array
-                signature-setsReference:
-                  properties:
-                    link:
-                      pattern: ^http
-                      type: string
-                  type: object
                 signature-settings:
                   properties:
                     attackSignatureFalsePositiveMode:
@@ -888,7 +834,19 @@ spec:
                       - medium
                       type: string
                   type: object
-                signature-settingsReference:
+                signatureReference:
+                  properties:
+                    link:
+                      pattern: ^http
+                      type: string
+                  type: object
+                signatureSetReference:
+                  properties:
+                    link:
+                      pattern: ^http
+                      type: string
+                  type: object
+                signatureSettingReference:
                   properties:
                     link:
                       pattern: ^http
@@ -903,17 +861,17 @@ spec:
                         type: integer
                     type: object
                   type: array
-                signaturesReference:
-                  properties:
-                    link:
-                      pattern: ^http
-                      type: string
-                  type: object
                 softwareVersion:
                   type: string
                 template:
                   properties:
                     name:
+                      type: string
+                  type: object
+                urlReference:
+                  properties:
+                    link:
+                      pattern: ^http
                       type: string
                   type: object
                 urls:
@@ -936,12 +894,6 @@ spec:
                         type: string
                     type: object
                   type: array
-                urlsReference:
-                  properties:
-                    link:
-                      pattern: ^http
-                      type: string
-                  type: object
                 whitelist-ips:
                   items:
                     properties:
@@ -959,7 +911,7 @@ spec:
                         type: string
                     type: object
                   type: array
-                whitelist-ipsReference:
+                whitelistIpReference:
                   properties:
                     link:
                       pattern: ^http
@@ -1014,12 +966,6 @@ spec:
                           tolerateNumericNames:
                             type: boolean
                         type: object
-                      defenseAttributesReference:
-                        properties:
-                          link:
-                            pattern: ^http
-                            type: string
-                        type: object
                       description:
                         type: string
                       enableWss:
@@ -1030,12 +976,6 @@ spec:
                         type: string
                     type: object
                   type: array
-                xml-profilesReference:
-                  properties:
-                    link:
-                      pattern: ^http
-                      type: string
-                  type: object
                 xml-validation-files:
                   items:
                     properties:
@@ -1047,7 +987,13 @@ spec:
                         type: boolean
                     type: object
                   type: array
-                xml-validation-filesReference:
+                xmlProfileReference:
+                  properties:
+                    link:
+                      pattern: ^http
+                      type: string
+                  type: object
+                xmlValidationFileReference:
                   properties:
                     link:
                       pattern: ^http

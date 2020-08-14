@@ -30,6 +30,10 @@ The table below categorizes some potential problems with the Ingress Controller 
      - The Ingress Controller NGINX verification timeouts while starting for the first time or while reloading after a change.
      - Check the logs for ``Unable to fetch version: X`` message.
      - Too many Ingress Resources with App Protect enabled. Check the `NGINX fails to start/reload section <#nginx-fails-to-start-or-reload>`_ of the Known Issues. 
+   * - Reload time.
+     - The Ingress Controller NGINX Configuration timeout takes longer than usual.
+     - Check the HTTP resonse time to resources used in App Protect policy external references.
+     - The servers providing policy snippets have an increased response time due to load, or network Latency.      
 ```
 
 ## Troubleshooting Methods
@@ -103,3 +107,10 @@ This timeout should be more than enough to verify configurations. However, when 
 - You are running the Ingress Controller for the first time in a cluster where the Ingress Resources with App Protect enabled are already present.
 
 You can increase this timeout by setting the `nginx-reload-timeout` [cli-argument](/nginx-ingress-controller/configuration/global-configuration/command-line-arguments/#cmdoption-nginx-reload-timeout).
+
+### Check the HTTP resonse time to resources used in App Protect policy external references.
+
+You can check the total time a http request takes, in multiple ways eg. using curl:
+```
+curl -w '%{time_total}' http://192.168.100.100/resources/headersettings.txt
+```
